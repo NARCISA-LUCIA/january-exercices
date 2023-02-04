@@ -11,8 +11,9 @@ export class AppComponent {
   title = 'january-exercices';
 
   constructor() {
-    this.monthCheckStarter();
-    this.employeeListStarter();
+    //this.monthCheckStarter();
+    //this.employeeListStarter();
+    this.duplicateElementArrayStarter();
   }
 
   /*1. 
@@ -174,8 +175,8 @@ cu cel mult 10 ani fata de retirment age. Foloseste while in loc de for*/
       employee4,
     ];
 
-    this.listEmployeesWhoHaveRetirement(arrayEmployee, 60);
-    this.listEmployeesWhoAreClosedToRetirement(arrayEmployee, 70);
+    // this.listEmployeesWhoHaveRetirement(arrayEmployee, 60);
+    // this.listEmployeesWhoAreClosedToRetirement(arrayEmployee, 70);
   }
 
   listEmployeesWhoHaveRetirement(
@@ -215,6 +216,49 @@ cu cel mult 10 ani fata de retirment age. Foloseste while in loc de for*/
       } else {
         console.log('didnt match retirement');
       }
+    }
+  }
+// Exercice
+  //3. Ai un array cu elemente care se repetă. Afișează elementele duplicat.
+  // De ex la un array ca {1,2,3,4,5,6,2}  va fi afișat 2
+
+  duplicateElementArrayStarter() {
+    let arrayElement: number[];
+    arrayElement = [1, 2, 3, 1];
+    // this.duplicateElementArray(arrayElement);
+    this.duplicateElementArrayWhile(arrayElement);
+  }
+
+  duplicateElementArray(array: number[]): void {
+    let duplicatesFound = false;
+    for (let i = 0; i < array.length; i++) {
+      for (let j = i + 1; j < array.length; j++) {
+        if (array[i] == array[j]) {
+          duplicatesFound = true;
+          console.log('duplicate number: ' + array[j]);
+        }
+      }
+    }
+    if (!duplicatesFound) {
+      console.log('no duplicates found in array');
+    }
+  }
+
+  //4. Clasa JavaSeven. Problema 3 dar implementata cu while
+  duplicateElementArrayWhile(array: number[]): void {
+    let i = 0;
+    let flag = false;
+    while (i < array.length) {
+      for (let j = i + 1; j < array.length; j++) {
+        if (array[i] == array[j]) {
+          flag = true;
+          console.log('duplicate number with while is: ' + array[j]);
+        }
+      }
+      i++;
+    }
+    if (!flag) {
+      console.log('No duplicates');
     }
   }
 }

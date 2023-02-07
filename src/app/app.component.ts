@@ -13,7 +13,10 @@ export class AppComponent {
   constructor() {
     //this.monthCheckStarter();
     //this.employeeListStarter();
-    this.duplicateElementArrayStarter();
+    // this.duplicateElementArrayStarter();
+    // this.checkIfNumberIsPrimeStarter();
+    // this.showInReverseArrayStarter();
+    this.checkTheSameIntegersStarter();
   }
 
   /*1. 
@@ -218,7 +221,7 @@ cu cel mult 10 ani fata de retirment age. Foloseste while in loc de for*/
       }
     }
   }
-// Exercice
+
   //3. Ai un array cu elemente care se repetă. Afișează elementele duplicat.
   // De ex la un array ca {1,2,3,4,5,6,2}  va fi afișat 2
 
@@ -226,7 +229,7 @@ cu cel mult 10 ani fata de retirment age. Foloseste while in loc de for*/
     let arrayElement: number[];
     arrayElement = [1, 2, 3, 1];
     // this.duplicateElementArray(arrayElement);
-    this.duplicateElementArrayWhile(arrayElement);
+    // this.duplicateElementArrayWhile(arrayElement);
   }
 
   duplicateElementArray(array: number[]): void {
@@ -259,6 +262,69 @@ cu cel mult 10 ani fata de retirment age. Foloseste while in loc de for*/
     }
     if (!flag) {
       console.log('No duplicates');
+    }
+  }
+
+  // 5. Clasa JavaEight. Creează o metodă showInReverse(int[] intArray) care primește ca parametru
+  // un array de integers si va afișa array ul in sens invers.
+  // Creează încă o metodă care va face același lucru dar cu while în loc de for.
+  // Ex. [1,2,3,4,5] va afișa 5,4,3,2,1
+
+  showInReverseArrayStarter() {
+    let arrayReverse: number[] = [1, 2, 3, 4, 5];
+    this.showInReverseArray(arrayReverse);
+  }
+
+  showInReverseArray(numberArray: number[]): void {
+    // for (let i = numberArray.length - 1; i >= 0; i--) {
+    //   console.log("number reverse is: " + numberArray[i]);
+    // }
+
+    let i = numberArray.length - 1;
+    while (i >= 0) {
+      console.log('while version: ' + numberArray[i]);
+      i--;
+    }
+  }
+
+  // 6. Creeaza o metoda care sa verifice daca un numar este prim. Foloseste while pentru implementare.
+
+  checkIfNumberIsPrimeStarter() {
+    this.checkIfNumberIsPrime(4);
+  }
+
+  checkIfNumberIsPrime(primeNumber: number): void {
+    let i = 2;
+    let isPrimeNumber = true;
+    while (i < primeNumber) {
+      if (primeNumber % 2 == 0) {
+        isPrimeNumber = false;
+      }
+      i++;
+    }
+    if (isPrimeNumber == false) {
+      console.log('the prime number ' + primeNumber + ' is not prime ');
+    } else {
+      console.log('the number ' + primeNumber + ' is prime');
+    }
+  }
+
+  // 7. Write a Java program to test if the first and the last element of an array of integers are same.
+  //The length of the array must be greater than or equal to 2.
+  // Test Data: array = 50, -20, 0, 30, 40, 60, 10
+  // Sample Output: false
+
+  checkTheSameIntegersStarter() {
+    let array: number[] = [50, -20, 0, 30, 40, 60, 10];
+    this.checkTheSameIntegers(array);
+  }
+  checkTheSameIntegers(numberArray: number[]): void {
+    for (let i = 0; i < numberArray.length; i++) {
+      if (numberArray[0] == numberArray[numberArray.length - 1]) {
+        console.log('true');
+      } else {
+        console.log('false');
+      }
     }
   }
 }

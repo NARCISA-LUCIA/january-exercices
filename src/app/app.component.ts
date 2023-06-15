@@ -4,7 +4,7 @@ import { Employee } from './model/employee';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl:'./app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
@@ -27,14 +27,15 @@ export class AppComponent {
     //this.testArrayIntegersStarter();
     //this.checkLaterArrayIntegersStarter();
     //this.checkGreaterNumberStarter();
-    //this.checkPalindromNumberStarter();
+    // this.checkPalindromNumberStarter();
     // this.firstOccurenceStarter();
     //this.longestStringArrayStarter();
-    this.printsOddElementStarter();
+    //this.printsOddElementStarter();
     //this.primeElementStarter();
     //this.methodFibonacciStarter();
     // this.switchCaseStarter();
     //this.nestedIfStarter();
+    this.doubleElementArrayStarter();
   }
 
   /*1. 
@@ -271,10 +272,31 @@ cu cel mult 10 ani fata de retirment age. Foloseste while in loc de for*/
   //3. Ai un array cu elemente care se repetă. Afișează elementele duplicat.
   // De ex la un array ca {1,2,3,4,5,6,2}  va fi afișat 2
 
+  doubleElementArrayStarter() {
+    let arrayElement: number[] = [1,2,3,4,5,6,2];
+    this.doubleElementArray(arrayElement);
+  }
+
+  doubleElementArray(array: number[]):void {
+    let doubleFound = false;
+    for (let i = 0; i < array.length; i++){
+      for (let j = i + 1; j < array.length; j++){
+        if (array[i] == array[j]) {
+          doubleFound = true;
+          console.log("the double number is: " + array[j]);
+        }
+      }
+    }
+    if (!doubleFound) {
+      console.log("dont exist double in array");
+      
+    }
+  }
+
   duplicateElementArrayStarter() {
     let arrayElement: number[];
     arrayElement = [1, 2, 3, 1];
-    // this.duplicateElementArray(arrayElement);
+    this.duplicateElementArray(arrayElement);
     // this.duplicateElementArrayWhile(arrayElement);
   }
 
@@ -334,10 +356,6 @@ cu cel mult 10 ani fata de retirment age. Foloseste while in loc de for*/
   }
 
   // 6. Creeaza o metoda care sa verifice daca un numar este prim. Foloseste while pentru implementare.
-
-  checkIfNumberIsPrimeStarter() {
-    this.checkIfNumberIsPrime(4);
-  }
 
   checkIfNumberIsPrime(primeNumber: number): void {
     let i = 2;
@@ -700,9 +718,9 @@ cu cel mult 10 ani fata de retirment age. Foloseste while in loc de for*/
     let reminder = 0;
     let element = number;
     while (number != 0) {
-      reminder = number % 10;
+      reminder = Math.trunc(number % 10);
       console.log('reminder = ' + reminder);
-      reverse = reverse * 10 + reminder;
+      reverse = (reverse * 10) + reminder;
       number = number / 10;
       console.log('reverse in while = ' + reverse);
     }
